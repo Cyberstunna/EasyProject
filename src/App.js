@@ -1,7 +1,9 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import UserDashboard from "./pages/UserDashboard";
 import "./App.css"
 import NavigationBar from "./components/NavigationBar";
+import UserSettings from "./pages/UserSettings";
 
 function App() {
   return (
@@ -11,7 +13,10 @@ function App() {
           <NavigationBar />
         </div>
         <div className="pl-24">
-          <UserDashboard />
+        <Routes>
+          <Route path="/" element={<UserDashboard />} />
+          <Route path="/settings" element={<UserSettings />} />
+        </Routes>
         </div>
       </div>
     </div>
