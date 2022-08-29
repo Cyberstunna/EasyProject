@@ -4,6 +4,8 @@ import UserDashboard from "./pages/UserDashboard";
 import "./App.css"
 import NavigationBar from "./components/NavigationBar";
 import UserSettings from "./pages/UserSettings";
+import PersonalInfo from "./viewcomponents/SettingsPersonalInfo";
+import Account from "./viewcomponents/SettingsAccount";
 
 function App() {
   return (
@@ -14,8 +16,11 @@ function App() {
         </div>
         <div className="pl-24">
         <Routes>
-          <Route path="/" element={<UserDashboard />} />
-          <Route path="/settings" element={<UserSettings />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/settings" element={<UserSettings />}>
+            <Route path="personalinfo" element={<PersonalInfo />} />
+            <Route path="account" element={<Account />} />
+          </Route>
         </Routes>
         </div>
       </div>
