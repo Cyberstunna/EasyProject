@@ -21,14 +21,14 @@ const SettingsNavigationBar = () => {
                         </div>
                     </li>
                     </NavLink>
-                    <NavLink to="personalinfo">
+                    <NavLink to="suggest">
                     <li className="p-2 hover:bg-slate-200 rounded-sm ease-in-out duration-300 cursor-pointer mb-2">
                         <div>
                             <span>Suggest a Feature</span>
                         </div>
                     </li>
                     </NavLink>
-                    <NavLink to="personalinfo">
+                    <NavLink to="reportbug">
                     <li className="p-2 hover:bg-slate-200 rounded-sm ease-in-out duration-300 cursor-pointer mb-2">
                         <div>
                             <span>Report A Bug</span>
