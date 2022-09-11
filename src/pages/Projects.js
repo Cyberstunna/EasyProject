@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
 
@@ -26,15 +27,17 @@ const Projects = () => {
                     <label className="pl-2 text-sm font-bold">Completed</label>
                 </div> */}
                 <div>
+                <Link to="/projects/new">
                     <button className="ml-1 bg-indigo-500 hover:bg-indigo-300 ease-in-out duration-300 rounded-md p-2 text-sm font-bold text-white mt-2">+ New Project</button>
+                </Link>
                 </div>
             </div>
-            <div className="w-full my-3">
+            <div className="w-full mt-6">
                 <div className="bg-white border shadow-xl rounded-md">
                     <table className="table-auto border-collapse w-full">
                         <thead>
-                            <tr className="text-lg">
-                                <th className="px-1 py-4">
+                            <tr className="text-lg text-left">
+                                <th className="px-2 py-4">
                                     Project Name
                                 </th>
                                 <th className="px-1">

@@ -9,11 +9,12 @@ import Account from "./viewcomponents/SettingsAccount";
 import SuggestFeature from "./viewcomponents/SettingsSuggestFeature";
 import ReportBug from "./viewcomponents/SettingsReportBug";
 import Projects from "./pages/Projects";
+import NewProject from "./pages/NewProjects";
 import Clients from "./pages/Clients";
 import Resources from "./pages/Resources";
 import Documents from "./pages/Documents";
 
-function App() {
+function App() { 
   return (
     <div className="App ">
       <div>
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/new" element={<NewProject />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/documents" element={<Documents />} />
