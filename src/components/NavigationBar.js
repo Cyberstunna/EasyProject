@@ -48,6 +48,13 @@ const NavigationBar = () => {
                                 </div>
                             </li>
                         </Link>
+                        <Link to="/">
+                            <li>
+                                <div className="rounded-lg hover:bg-indigo-400 px-2 ease-in-out duration-300 hover:cursor-pointer">
+                                    <button>Sign Out</button>
+                                </div>
+                            </li>
+                        </Link>
                         <li>
                             <Link to="/settings/personalinfo">
                             <div className="rounded-lg hover:bg-indigo-400 px-2 ease-in-out duration-300 hover:cursor-pointer">

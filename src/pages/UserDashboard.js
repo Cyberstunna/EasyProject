@@ -6,7 +6,7 @@ import ToDo from "../components/ToDo";
 
 const UserDashboard = () => {
     return(
-        <div className="w-full flex flex-col h-full">
+        <div className="pl-28 flex flex-col h-full">
             <div className="relative mt-8 flex flex-col ">
                 <h2 className="text-left font-bold text-2xl">Performance Bar</h2>
                 <div className="">

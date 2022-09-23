@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewProject = () => {
     return(
@@ -141,7 +142,9 @@ const NewProject = () => {
                 <div className="py-2">
                     <div className="flex flex-row place-content-between">
                         <button className="ml-2 bg-indigo-500 font-bold px-2 py-1 text-white rounded-md">Register Project</button>
-                        <button className="ml-2 bg-red-500 font-bold px-2 py-1 text-white rounded-md">Cancel</button>
+                        <Link to="/projects">
+                            <button className="ml-2 bg-red-500 font-bold px-2 py-1 text-white rounded-md">Cancel</button>
+                        </Link>
                     </div>
                 </div>
             </div>
