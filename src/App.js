@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import { Routes, Route } from "react-router-dom";
 import UserDashboard from "./pages/UserDashboard";
 import "./App.css"
@@ -14,6 +14,7 @@ import Clients from "./pages/Clients";
 import Resources from "./pages/Resources";
 import Documents from "./pages/Documents";
 import NewClients from "./pages/NewClients";
+import axios from "axios";
 
 function App() { 
   return (
@@ -47,8 +48,43 @@ function App() {
 
 
 const Login = () => {
+
+  const [ userEmail, setUserEmail ] = useState('');
+  const [ userPassword, setUserPassword ] = useState('');
+  const [ userCredentials, setUserCredentials ] = useState({});
+
+  const setHelper = (event) => {
+    if(event.target.type === 'email'){
+      setUserEmail(event.target.value);
+      console.log(`email is ${userEmail}`);
+    }
+    else if(event.target.type === 'password'){
+      setUserPassword(event.target.value);
+      console.log(`password is ${userPassword}`);
+    }
+  }
+
+  const submitHelper = (event) => {
+    setUserCredentials({email: userEmail, password: userPassword});
+    console.log(userCredentials);
+    axios.post(`http://localhost:8080/auth`, userCredentials)
+    .then(({data}) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   return(
     <div className="relative top-40" >
+      {/* <div>
+        <img 
+        src={'./assets/bloom-36.png'} 
+        alt="Illustration"  
+        className="h-36 w-auto"
+        />
+      </div> */}
       <div className="mx-auto w-3/12 h-96 border rounded-md shadow-xl ">
         <div className="flex flex-col h-full p-3">
           <div className="mx-auto">
@@ -56,23 +92,23 @@ const Login = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
             </svg>
           </div>
-          <form className="h-full place-content-between w-3/4 mx-auto">
+          <div className="h-full place-content-between w-3/4 mx-auto">
             <h1 className="text-left text-2xl font-bold">Sign In</h1>
             <div className=" ">
               <div className="flex flex-col w-full my-3">
                 <label className="text-left">Email</label>
-                <input type='email' className="border-2 rounded-md h-10 p-5 text-lg border-indigo-500" required='true'/>
+                <input type='email' className="border-2 rounded-md h-10 p-5 text-lg border-indigo-500" required onChange={setHelper}/>
               </div>
               <div className="flex flex-col w-full my-3">
                 <label className="text-left">Password</label>
-                <input type='password' className="border-2 rounded-md h-10 p-5 text-2xl border-indigo-500" required='true'/>
+                <input type='password' id="password" className="border-2 rounded-md h-10 p-5 text-2xl border-indigo-500" required onChange={setHelper}/>
               </div>
               <div className="flex flex-col my-8">
-                <input type='submit' value="Sign In" className="cursor-pointer font-bold text-xl border px-2 py-1 rounded-none bg-indigo-400" required='true'/>
+                <input type='submit' value="Sign In" className="cursor-pointer font-bold text-xl border px-2 py-1 rounded-none bg-indigo-400" onClick={submitHelper}/>
                 <a href="" className="italic underline text-sm">Forgot Password?</a>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
